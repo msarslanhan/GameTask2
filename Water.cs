@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Water : MonoBehaviour
 {
-    public GameObject deathPanel;
+    public GameObject deathPanel,playerBar;
     public Animator characterAnim;
     void Start()
     {
@@ -15,8 +15,11 @@ public class Water : MonoBehaviour
     {
         if (other.tag == "Player") // filter the objects that collide with the checkpoint. You can assign the tag in the inspector
         {
+            playerBar.SetActive(false);
             characterAnim.SetTrigger("Die");
             deathPanel.SetActive(true);
+            PlayerPrefs.SetInt("RunXPlane",0);
+            PlayerPrefs.SetInt("RunZPlane",0);
             Invoke("TimeStoper",1f);
         }
     }

@@ -21,6 +21,10 @@ public class Camera : MonoBehaviour
         {
             offset= new Vector3(-5.7f,5f,0f);
         }
-        transform.DOLocalMove(player.transform.position + offset,1.5f);
+        /*transform.position = player.transform.position + offset;*/
+        if(player.transform!=null)
+        {
+            transform.DOLocalMove(player.transform.position + offset,1.5f);
+        }
     }
 }

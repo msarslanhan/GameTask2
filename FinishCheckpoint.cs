@@ -18,20 +18,23 @@ public class FinishCheckpoint : MonoBehaviour
             PlayerPrefs.SetInt("RunXPlane",0);
             PlayerPrefs.SetInt("RunZPlane",0);
             int moneyValue = PlayerPrefs.GetInt("Money");
-            if(moneyValue <100 && workOnTime == true)
+            if(moneyValue <200 && workOnTime == true)
             {
                 workOnTime = false;
                 characterAnim.SetTrigger("Die");
+                GameOverPanel.SetActive(true);
             }
-            else if(moneyValue>100 && moneyValue<200 && workOnTime == true)
+            else if(moneyValue>=200 && moneyValue<400 && workOnTime == true)
             {
                 workOnTime = false;
-                characterAnim.SetTrigger("Sad");
+                characterAnim.SetTrigger("average");
+                GameOverPanel.SetActive(true);
             }
-            else if(moneyValue>200 && workOnTime == true)
+            else if(moneyValue>=400 && workOnTime == true)
             {
                 workOnTime = false;
                 characterAnim.SetTrigger("Dance");
+                GameOverPanel.SetActive(true);
             }
         }
     }
